@@ -1,4 +1,4 @@
-// Tela principal do Radar Cripto: par escolhido, tempo gráfico, abas e atualização.
+// Tela principal do Radar de Spread Cripto: par escolhido, tempo gráfico, abas e atualização.
 import { analisarAtivo, btcDiario } from "./analise.js";
 import { spread } from "./core.js";
 import { desenhar } from "./grafico.js";

@@ -1,5 +1,5 @@
 // Service worker: guarda a tela para abrir rápido e offline; preços sempre vêm da rede.
-const VERSAO = "radar-cripto-v1";
+const VERSAO = "radar-spread-cripto-v1";
 const ARQUIVOS = [
   "./",
   "index.html",

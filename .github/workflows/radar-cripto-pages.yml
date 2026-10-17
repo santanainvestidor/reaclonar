@@ -1,10 +1,10 @@
-name: Radar Cripto (GitHub Pages)
+name: Radar de Spread Cripto (GitHub Pages)
 
 on:
   push:
     branches: [agent/process-cleanup]
     paths:
-      - "apps/radar-cripto/**"
+      - "Radar de Spread Cripto/**"
       - ".github/workflows/radar-cripto-pages.yml"
   workflow_dispatch:
 
@@ -28,6 +28,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/radar-cripto
+          path: Radar de Spread Cripto
       - id: deployment
         uses: actions/deploy-pages@v4
