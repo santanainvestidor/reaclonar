@@ -1,0 +1,296 @@
+:root {
+  --fundo: #0f1419;
+  --painel: #182029;
+  --borda: #2a3541;
+  --texto: #e6edf3;
+  --suave: #8b98a5;
+  --alta: #22c55e;
+  --baixa: #ef4444;
+  --espera: #eab308;
+  --azul: #3b82f6;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font:
+    15px/1.4 system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+}
+
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--fundo);
+  border-bottom: 1px solid var(--borda);
+  padding: calc(8px + env(safe-area-inset-top)) 12px 8px;
+}
+
+.linha {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 4px 0;
+}
+
+select,
+input[type="search"],
+button,
+.botao {
+  font: inherit;
+  color: var(--texto);
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 8px 10px;
+  text-decoration: none;
+}
+
+select {
+  flex: 1;
+  min-width: 0;
+}
+
+input[type="search"] {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.botao.forte {
+  background: var(--azul);
+  border-color: var(--azul);
+}
+
+.tempos {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.tempos button {
+  flex: 1;
+}
+
+.tempos button.ativo,
+.abas button.ativa {
+  background: var(--azul);
+  border-color: var(--azul);
+}
+
+.badge {
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  white-space: nowrap;
+}
+
+.badge.compra,
+.tag.compra {
+  background: var(--alta);
+  border-color: var(--alta);
+  color: #04130a;
+}
+
+.badge.venda,
+.tag.venda {
+  background: var(--baixa);
+  border-color: var(--baixa);
+  color: #1a0505;
+}
+
+.badge.aguardar,
+.tag.aguardar {
+  background: transparent;
+  border-color: var(--espera);
+  color: var(--espera);
+}
+
+.aviso {
+  color: var(--espera);
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+
+main {
+  padding: 12px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: 8px;
+}
+
+.kpi {
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.kpi span {
+  display: block;
+  color: var(--suave);
+  font-size: 12px;
+}
+
+.kpi b {
+  font-size: 17px;
+}
+
+.cartao {
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 12px;
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.nota {
+  color: var(--suave);
+  font-size: 12px;
+  margin: 6px 0;
+}
+
+.rodape {
+  text-align: center;
+}
+
+.destaque {
+  margin: 8px 0 0;
+}
+
+.decisao {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 12px;
+  margin: 0;
+}
+
+.lista dt {
+  color: var(--suave);
+}
+
+.lista dd {
+  margin: 0;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela td,
+.tabela th {
+  padding: 7px 4px;
+  border-bottom: 1px solid var(--borda);
+  text-align: left;
+  vertical-align: top;
+}
+
+.tabela th {
+  color: var(--suave);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.mercado td:nth-child(n + 2),
+.mercado th:nth-child(n + 2) {
+  text-align: right;
+}
+
+.mercado tr,
+.resultado {
+  cursor: pointer;
+}
+
+.alta {
+  color: var(--alta);
+}
+
+.baixa {
+  color: var(--baixa);
+}
+
+.neutro {
+  color: var(--suave);
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.resultado {
+  border-bottom: 1px solid var(--borda);
+  padding: 8px 0;
+}
+
+.resultado .linha {
+  justify-content: space-between;
+  margin: 0;
+}
+
+.grafico svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chave {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.abas {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+  background: var(--fundo);
+  border-top: 1px solid var(--borda);
+}
+
+.abas button {
+  flex: 1;
+}
