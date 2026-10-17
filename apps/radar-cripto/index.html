@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0f1419" />
+    <meta
+      name="description"
+      content="Entradas do SINAL MILIONARIO, Fibonacci e spread das criptos do Águia Spread."
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Radar Cripto" />
+    <title>Radar Cripto</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topo">
+      <div class="linha">
+        <select id="par" aria-label="Par"></select>
+        <span id="badge" class="badge">…</span>
+        <a id="tv" class="botao" target="_blank" rel="noopener">TradingView</a>
+      </div>
+      <div class="linha">
+        <div id="tempos" class="tempos" role="group" aria-label="Tempo gráfico">
+          <button data-tf="30m">30m</button>
+          <button data-tf="2h">2h</button>
+          <button data-tf="4h">4h</button>
+          <button data-tf="1D">1D</button>
+        </div>
+        <button id="atualizar" class="botao" aria-label="Atualizar">↻</button>
+      </div>
+      <p id="aviso" class="aviso" hidden></p>
+    </header>
+
+    <main>
+      <section id="aba-analise" class="aba">
+        <div class="kpis">
+          <div class="kpi"><span>Preço</span><b id="k-preco">—</b></div>
+          <div class="kpi"><span>24 h</span><b id="k-24h">—</b></div>
+          <div class="kpi"><span>Recuo do topo</span><b id="k-recuo">—</b></div>
+          <div class="kpi">
+            <span>Repique do fundo</span><b id="k-repique">—</b>
+          </div>
+          <div class="kpi"><span>Amplitude</span><b id="k-amp">—</b></div>
+        </div>
+        <p class="nota">Recuo, repique e amplitude nos últimos 50 candles.</p>
+
+        <div class="cartao">
+          <h2>Gráfico e Fibonacci</h2>
+          <div id="grafico" class="grafico"></div>
+          <p id="fibo" class="destaque"></p>
+        </div>
+
+        <div class="cartao">
+          <h2>Entrada e permanência</h2>
+          <p id="decisao" class="decisao"></p>
+          <dl id="entrada" class="lista"></dl>
+        </div>
+
+        <div class="cartao">
+          <h2>Painel SINAL MILIONARIO</h2>
+          <p id="conf" class="destaque"></p>
+          <table class="tabela">
+            <tbody id="painel"></tbody>
+          </table>
+        </div>
+
+        <div class="cartao">
+          <h2>Spread por candle</h2>
+          <dl id="spread" class="lista"></dl>
+        </div>
+      </section>
+
+      <section id="aba-varredura" class="aba" hidden>
+        <div class="cartao">
+          <h2>Varredura de entradas</h2>
+          <p class="nota">
+            Aplica a regra de entrada em todas as criptos no tempo escolhido.
+          </p>
+          <div class="linha">
+            <button id="varrer" class="botao forte">Varrer agora</button>
+            <label class="chave"
+              ><input id="so-entradas" type="checkbox" checked /> Só
+              entradas</label
+            >
+          </div>
+          <div class="linha">
+            <label class="chave"
+              ><input id="alertas" type="checkbox" /> Avisar novas entradas a
+              cada 5 min (com o app aberto)</label
+            >
+          </div>
+          <p id="progresso" class="nota"></p>
+          <div id="varredura"></div>
+        </div>
+      </section>
+
+      <section id="aba-mercado" class="aba" hidden>
+        <div class="cartao">
+          <h2>Mercado agora</h2>
+          <input id="busca" type="search" placeholder="Buscar cripto" />
+          <table class="tabela mercado">
+            <thead>
+              <tr>
+                <th data-ordem="tv">Par</th>
+                <th data-ordem="preco">Preço</th>
+                <th data-ordem="var">24 h</th>
+                <th data-ordem="amp">Amplitude</th>
+              </tr>
+            </thead>
+            <tbody id="mercado"></tbody>
+          </table>
+          <p id="faltando" class="nota"></p>
+        </div>
+      </section>
+      <p class="nota rodape">
+        Dados públicos da Binance. Uso educacional, não é recomendação de
+        investimento.
+      </p>
+    </main>
+
+    <nav class="abas">
+      <button data-aba="analise" class="ativa">Análise</button>
+      <button data-aba="varredura">Varredura</button>
+      <button data-aba="mercado">Mercado</button>
+    </nav>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
